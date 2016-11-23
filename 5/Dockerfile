@@ -28,7 +28,7 @@ RUN mkdir -p          ${BAMBOO_HOME} \
     && chmod -R 700   ${BAMBOO_HOME} \
     && mkdir -p       ${BAMBOO_INSTALL}/conf/Catalina \
     && curl -Ls       ${DOWNLOAD_URL} | tar -xz --directory ${BAMBOO_INSTALL} --strip-components=1 --no-same-owner \
-    && curl -Ls       ${CONNECTOR_DOWNLOAD_URL} | tar -xz --directory ${INSTALL_DIR}/bamboo/WEB-INF/lib --strip-components=1 --no-same-owner "mysql-connector-java-$CONNECTOR_VERSION/mysql-connector-java-$CONNECTOR_VERSION-bin.jar"
+    && curl -Ls       ${CONNECTOR_DOWNLOAD_URL} | tar -xz --directory ${INSTALL_DIR}/lib --strip-components=1 --no-same-owner "mysql-connector-java-$CONNECTOR_VERSION/mysql-connector-java-$CONNECTOR_VERSION-bin.jar"
 
 RUN  chmod -R 700 ${BAMBOO_INSTALL}/conf \
      && echo      "\nbamboo.home=$BAMBOO_HOME" >> ${BAMBOO_INSTALL}/atlassian-bamboo/WEB-INF/classes/bamboo-init.properties
