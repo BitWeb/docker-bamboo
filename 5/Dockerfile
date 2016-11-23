@@ -17,7 +17,7 @@ ENV CONNECTOR_DOWNLOAD_URL https://dev.mysql.com/get/Downloads/Connector-J/mysql
 
 # Install BAMBOO dependencies
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends curl htop nano \
+    && apt-get install -y --no-install-recommends curl htop nano git \
     && apt-get clean autoclean \
     && apt-get autoremove --yes \
     && rm -rf /var/lib/{apt,dpkg,cache,log}
