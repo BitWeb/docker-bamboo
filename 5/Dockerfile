@@ -32,6 +32,10 @@ RUN mkdir -p          ${HOME_DIR} \
 
 RUN  chmod -R 700 ${INSTALL_DIR}/conf \
      && echo      "\nbamboo.home=$HOME_DIR" >> ${INSTALL_DIR}/atlassian-bamboo/WEB-INF/classes/bamboo-init.properties
+     
+# Install Docker engine to enable building in Docker containers
+RUN curl -fsSL https://get.docker.com/gpg | sudo apt-key add - \
+    && curl -fsSL https://get.docker.com/ | sh
 
 # Set the default working directory as the installation directory.
 WORKDIR $INSTALL_DIR
