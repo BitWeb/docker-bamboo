@@ -4,7 +4,7 @@ MAINTAINER BitWeb
 # BAMBOO variables
 ENV HOME_DIR     /var/atlassian/bamboo
 ENV INSTALL_DIR  /opt/atlassian/bamboo
-ENV VERSION      5.13.2
+ENV VERSION      5.13.0
 ENV DOWNLOAD_URL https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-$VERSION.tar.gz
 
 # MySQL Connector
