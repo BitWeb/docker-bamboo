@@ -15,11 +15,11 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle/jre/
 # BAMBOO variables
 ENV HOME_DIR     /var/atlassian/bamboo
 ENV INSTALL_DIR  /opt/atlassian/bamboo
-ENV VERSION      6.0.0
+ENV VERSION      6.1.1
 ENV DOWNLOAD_URL https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-$VERSION.tar.gz
 
 # MySQL Connector
-ENV CONNECTOR_VERSION      5.1.40
+ENV CONNECTOR_VERSION      5.1.44
 ENV CONNECTOR_DOWNLOAD_URL https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${CONNECTOR_VERSION}.tar.gz
 
 #################################################
