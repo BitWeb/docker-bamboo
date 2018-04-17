@@ -2,10 +2,10 @@ FROM bitweb/java:8
 MAINTAINER BitWeb
 
 # BAMBOO variables
-ENV HOME_DIR     /var/atlassian/bamboo
-ENV INSTALL_DIR  /opt/atlassian/bamboo
-ENV VERSION      6.4.1
-ENV DOWNLOAD_URL https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-$VERSION.tar.gz
+ENV HOME_DIR       /var/atlassian/bamboo
+ENV INSTALL_DIR    /opt/atlassian/bamboo
+ENV BAMBOO_VERSION 6.4.1
+ENV BAMBOO_URL     https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-$BAMBOO_VERSION.tar.gz
 
 # MySQL Connector
 ENV CONNECTOR_VERSION      5.1.46
@@ -27,7 +27,7 @@ RUN mkdir -p          ${HOME_DIR} \
     && mkdir -p       ${HOME_DIR}/caches/indexes \
     && chmod -R 700   ${HOME_DIR} \
     && mkdir -p       ${INSTALL_DIR}/conf/Catalina \
-    && curl -Ls       ${DOWNLOAD_URL} | tar -xz --directory ${INSTALL_DIR} --strip-components=1 --no-same-owner \
+    && curl -Ls       ${BAMBOO_URL} | tar -xz --directory ${INSTALL_DIR} --strip-components=1 --no-same-owner \
     && curl -Ls       ${CONNECTOR_DOWNLOAD_URL} | tar -xz --directory ${INSTALL_DIR}/lib --strip-components=1 --no-same-owner "mysql-connector-java-$CONNECTOR_VERSION/mysql-connector-java-$CONNECTOR_VERSION-bin.jar"
 
 RUN  chmod -R 700 ${INSTALL_DIR}/conf \
