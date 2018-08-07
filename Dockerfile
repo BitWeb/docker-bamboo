@@ -20,7 +20,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle/jre/
 # BAMBOO variables
 ENV HOME_DIR       /var/atlassian/bamboo
 ENV INSTALL_DIR    /opt/atlassian/bamboo
-ENV BAMBOO_VERSION 6.6.0
+ENV BAMBOO_VERSION 6.6.1
 ENV BAMBOO_URL     https://www.atlassian.com/software/bamboo/downloads/binary/atlassian-bamboo-$BAMBOO_VERSION.tar.gz
 
 # MySQL Connector
