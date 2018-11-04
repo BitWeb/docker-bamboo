@@ -4,6 +4,12 @@ LABEL maintainer="rain@bitweb.ee"
 
 USER root
 
+# MySQL Connector
+ENV CONNECTOR_VERSION      5.1.46
+ENV CONNECTOR_DOWNLOAD_URL https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${CONNECTOR_VERSION}.tar.gz
+RUN curl -Ls ${CONNECTOR_DOWNLOAD_URL} | tar -xz --directory ${INSTALL_DIR}/lib --strip-components=1 --no-same-owner "mysql-connector-java-$CONNECTOR_VERSION/mysql-connector-java-$CONNECTOR_VERSION-bin.jar"
+
+
 # Install Docker engine to enable building in Docker containers
 RUN curl -fsSL https://get.docker.com/gpg | apt-key add - \
     && curl -fsSL https://get.docker.com/ | sh
