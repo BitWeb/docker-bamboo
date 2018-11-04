@@ -11,8 +11,12 @@ RUN curl -Ls ${CONNECTOR_DOWNLOAD_URL} | tar -xz --directory ${INSTALL_DIR}/lib 
 
 
 # Install Docker engine to enable building in Docker containers
-RUN curl -fsSL https://get.docker.com/gpg | apt-key add - \
-    && curl -fsSL https://get.docker.com/ | sh
+RUN apt-get update && \
+    apt-get install -y apt-transport-https ca-certificates curl software-properties-common && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
+    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" && \
+    apt-get update && \
+    apt-get install -y docker-ce
 
 # Link Docker executable to installation dir, as for some reason Bamboo looks for Docker in that directory
 RUN ln -s /usr/bin/docker /opt/atlassian/bamboo/
