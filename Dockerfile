@@ -27,5 +27,3 @@ RUN apt-get update && apt-get install -y unzip python \
     && unzip awscli-bundle.zip \
     && rm awscli-bundle.zip \
     && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
-
-USER ${BAMBOO_USER}
