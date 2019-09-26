@@ -18,8 +18,9 @@ RUN apt-get update && \
     apt-get update && \
     apt-get install -y docker-ce
 
-# Link Docker executable to installation dir, as for some reason Bamboo looks for Docker in that directory
+# Link Docker executable to installation and data dir, as for some reason Bamboo looks for Docker in those directories too
 RUN ln -s /usr/bin/docker /opt/atlassian/bamboo/
+RUN ln -s /usr/bin/docker /var/atlassian/application-data/bamboo/
 
 # Install AWS CLI to /usr/local/bin/aws
 RUN apt-get update && apt-get install -y unzip python \
