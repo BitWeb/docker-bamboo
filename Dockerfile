@@ -27,3 +27,8 @@ RUN apt-get update && apt-get install -y unzip python \
     && unzip awscli-bundle.zip \
     && rm awscli-bundle.zip \
     && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+
+# Create new group with same GID as machine docker user
+RUN groupadd -g 998 docker && usermod -a -G docker ${BAMBOO_USER}
+
+USER ${BAMBOO_USER}
