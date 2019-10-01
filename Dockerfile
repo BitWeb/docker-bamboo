@@ -30,6 +30,6 @@ RUN apt-get update && apt-get install -y unzip python \
     && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
 # Create new group with same GID as machine docker user
-RUN groupadd -g 998 docker2 && usermod -a -G docker2 ${BAMBOO_USER}
+#RUN groupadd -g 998 docker2 && usermod -a -G docker2 ${BAMBOO_USER}
 
 #USER ${BAMBOO_USER}
