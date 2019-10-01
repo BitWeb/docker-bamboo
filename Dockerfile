@@ -32,4 +32,4 @@ RUN apt-get update && apt-get install -y unzip python \
 # Create new group with same GID as machine docker user
 RUN groupadd -g 998 docker2 && usermod -a -G docker2 ${BAMBOO_USER}
 
-USER ${BAMBOO_USER}
+#USER ${BAMBOO_USER}
