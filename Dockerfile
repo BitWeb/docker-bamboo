@@ -29,6 +29,13 @@ RUN apt-get update && apt-get install -y unzip python \
     && rm awscli-bundle.zip \
     && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
+# Although not reccommended, we do need to run Bamboo in root user, for this we need to use custom entrypoint
+COPY entrypoint.sh /entrypoint.sh
+RUN chown -R root:root "${BAMBOO_SERVER_INSTALL_DIR}"
+RUN chown -R root:root "${BAMBOO_SERVER_HOME}"
+RUN chown root:root /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 # Create new group with same GID as machine docker user
 #RUN groupadd -g 998 docker2 && usermod -a -G docker2 ${BAMBOO_USER}
 
