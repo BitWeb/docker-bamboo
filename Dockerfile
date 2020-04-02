@@ -38,7 +38,7 @@ RUN docker-compose --version
 
 # Although not reccommended, we do need to run Bamboo in root user, for this we need to use custom entrypoint
 COPY entrypoint.sh /entrypoint.sh
-RUN chown -R root:root "${BAMBOO_SERVER_INSTALL_DIR}"
-RUN chown -R root:root "${BAMBOO_SERVER_HOME}"
+RUN chown -R root:root "${BAMBOO_INSTALL_DIR}"
+RUN chown -R root:root "${BAMBOO_HOME}"
 RUN chown root:root /entrypoint.sh
 RUN chmod +x /entrypoint.sh
