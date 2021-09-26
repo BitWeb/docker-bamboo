@@ -1,11 +1,11 @@
-FROM atlassian/bamboo-server:7.0.2
+FROM atlassian/bamboo-server:8.0.2
 
 LABEL maintainer="rain@bitweb.ee"
 
 USER root
 
 # MySQL Connector
-ENV CONNECTOR_VERSION      5.1.48
+ENV CONNECTOR_VERSION      5.1.49
 ENV CONNECTOR_DOWNLOAD_URL https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${CONNECTOR_VERSION}.tar.gz
 RUN curl -Ls ${CONNECTOR_DOWNLOAD_URL} | tar -xz --directory ${BAMBOO_SERVER_INSTALL_DIR}/lib --strip-components=1 --no-same-owner "mysql-connector-java-$CONNECTOR_VERSION/mysql-connector-java-$CONNECTOR_VERSION-bin.jar"
 
@@ -23,17 +23,16 @@ RUN ln -s /usr/bin/docker /opt/atlassian/bamboo/
 RUN ln -s /usr/bin/docker /var/atlassian/application-data/bamboo/
 
 # Install AWS CLI to /usr/local/bin/aws
-RUN apt-get update && apt-get install -y unzip python \
-    && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" \
-    && unzip awscli-bundle.zip \
-    && rm awscli-bundle.zip \
-    && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+RUN apt-get update && apt-get install -y unzip python3 python3-distutils \´
+    && curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+    && unzip awscliv2.zip \
+    && ./aws/install
 
 # Intstall Docker Compose
-ENV DOCKER_COMPOSE_VERSION 1.25.4
+ENV DOCKER_COMPOSE_VERSION 1.29.2
 RUN curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose
-    
+
 RUN docker-compose --version
 
 # Although not reccommended, we do need to run Bamboo in root user, for this we need to use custom entrypoint
