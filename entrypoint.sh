@@ -14,4 +14,4 @@ export LC_ALL=C.UTF-8
 export LANG=C.UTF-8
 export LANGUAGE=C.UTF-8
 
-exec "${BAMBOO_SERVER_INSTALL_DIR}/bin/start-bamboo.sh" "-fg"
+ exec "${BAMBOO_INSTALL_DIR}/bin/start-bamboo.sh" "-fg"
