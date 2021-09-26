@@ -7,7 +7,7 @@ USER root
 # MySQL Connector
 ENV CONNECTOR_VERSION      5.1.49
 ENV CONNECTOR_DOWNLOAD_URL https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${CONNECTOR_VERSION}.tar.gz
-RUN curl -Ls ${CONNECTOR_DOWNLOAD_URL} | tar -xz --directory ${BAMBOO_SERVER_INSTALL_DIR}/lib --strip-components=1 --no-same-owner "mysql-connector-java-$CONNECTOR_VERSION/mysql-connector-java-$CONNECTOR_VERSION-bin.jar"
+RUN curl -Ls ${CONNECTOR_DOWNLOAD_URL} | tar -xz --directory ${BAMBOO_INSTALL_DIR}/lib --strip-components=1 --no-same-owner "mysql-connector-java-$CONNECTOR_VERSION/mysql-connector-java-$CONNECTOR_VERSION-bin.jar"
 
 # Install Docker engine to enable building in Docker containers
 RUN apt update && \
