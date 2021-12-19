@@ -1,4 +1,4 @@
-FROM atlassian/bamboo-server:8.0.4-jdk11
+FROM atlassian/bamboo-server:8.0.5-jdk11
 
 LABEL maintainer="rain@bitweb.ee"
 
