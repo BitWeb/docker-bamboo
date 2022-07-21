@@ -3,7 +3,12 @@
 
 Adds aws-cli and docker to the standard Bamboo image by [Atlassian](https://store.docker.com/community/images/atlassian/bamboo-server).
 
-## Build and publish
+## Build and publish (Intel based machine)
 
-    docker build -t bitweb/bamboo:8.0.5 .
-    docker push bitweb/bamboo:8.0.5
+    docker build -t bitweb/bamboo:8.1.8 .
+    docker push bitweb/bamboo:8.1.8
+
+## Build and publish (ARM based machine)
+
+    docker buildx build --platform linux/amd64 -t bitweb/bamboo:8.1.8 .
+    docker push bitweb/bamboo:8.1.8
